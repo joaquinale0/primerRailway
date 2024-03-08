@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from .conexion import conexion
 import os
 
 
@@ -80,12 +81,12 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
-        'USER': 'root',
-        'PASSWORD': 'WDRlyVhpaqJNFNNvYYFxKSCQxDzpdkcY',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '30917',
+        'ENGINE': conexion.getter[0],
+        'NAME': conexion.getter[1],
+        'USER': conexion.getter[2],
+        'PASSWORD': conexion.getter[3],
+        'HOST': conexion.getter[4],
+        'PORT': conexion.getter[5],
     }
 }
 
